@@ -9,7 +9,7 @@ Set the php version in the dockerfile according to your needs before setup.
 2. Build the image:
 
 ```
-docker build -t <image_name>
+docker build . -t <image_name>
 ```
 
 3. Build and start the container:
@@ -25,15 +25,16 @@ docker ps
 ```
 
 5. Run the PHP Application container using the following command:
+   (you can use sh or bash or anything)
 
 ```
-docker exec -it <php-app-container> sh(or bash or any)
+docker exec -it <container_name> sh
 ```
 
 6. Generate autoload files using Composer:
 
 ```
-run composer dump-autoload
+composer dump-autoload
 ```
 
 7. Exit PHP container:
@@ -57,7 +58,14 @@ docker start <container_name>
 ```
 
 - Remove the container:
+  (stop container before this command)
 
 ```
-docker rm <container_name> or docker rm -f <container_name>
+docker rm <container_name>
+```
+
+or force remove without stopping the container
+
+```
+docker rm -f <container_name>
 ```
